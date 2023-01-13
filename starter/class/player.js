@@ -9,6 +9,16 @@ class Player extends Character {
     this.currentRoom = startingRoom;
   }
 
+  static checkForLight() {
+    let roomLight = this.currentRoom.items.find(item => item.name === 'light');
+    let playerLight = this.items.find(item => item.name === 'light')
+    if(roomLight || playerLight) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   move(direction) {
     const nextRoom = this.currentRoom.getRoomInDirection(direction);
 

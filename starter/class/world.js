@@ -1,7 +1,9 @@
-const { Room } = require("./room");
+const { DarkRoom } = require("./darkroom");
 const { Item } = require("./item");
 const { Food } = require("./food");
 const { Enemy } = require("./enemy");
+const { Room } = require("./room");
+
 
 class World {
   static rooms = {};
@@ -36,7 +38,7 @@ class World {
     // Get name, id and description from room data
     for (let i = 0; i < roomList.length; i++) {
       let roomData = roomList[i];
-      let newRoom = new Room(roomData.name, roomData.description);
+      let newRoom = new DarkRoom(roomData.name, roomData.description);
 
       World.rooms[roomData.id] = newRoom;
     }
@@ -83,12 +85,12 @@ class World {
   }
 }
 
-const room = new Room("Test Room", "A test room");
+const room = new DarkRoom("Test Room", "A test room");
 const item = new Item("rock", "just a simple rock");
 const sandwich = new Food("sandwich", "a delicious looking sandwich");
 const enemy = new Enemy("enemy", "an ordinary character", room);
 
-let westRoom = new Room("West Room", "A room to the west of testRoom");
+let westRoom = new DarkRoom("West Room", "A room to the west of testRoom");
 room.connectRooms("w", westRoom);
 
 console.log(enemy.currentRoom);

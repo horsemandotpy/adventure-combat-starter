@@ -36,7 +36,7 @@ class Room {
     return Object.keys(this.exits);
   }
 
-  getExitsStroomItemsring() {
+  getExitsString() {
     return `Exits: ${this.getExits().join(", ")}`;
   }
 
